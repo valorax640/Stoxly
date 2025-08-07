@@ -266,7 +266,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     paddingTop: 24,
     paddingBottom: 50,
-    minHeight: height * 0.35,
+    minHeight: height * 0.45,
     // Add shadow for better separation
     shadowColor: '#000',
     shadowOffset: {
@@ -276,6 +276,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 8,
     elevation: 10,
+    justifyContent: 'space-between',
   },
   indicatorContainer: {
     flexDirection: 'row',
@@ -301,7 +302,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#E0E0E0',
   },
   title: {
-    fontSize: 28,
+    fontSize: 34,
     fontWeight: 'bold',
     color: '#388e3c',
     textAlign: 'center',
