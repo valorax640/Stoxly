@@ -5,15 +5,15 @@ import LinearGradient from 'react-native-linear-gradient';
 const { height } = Dimensions.get('window');
 
 export default function StoxlyLoginScreen() {
-    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
     return (
         <View style={styles.root}>
-            <StatusBar barStyle="light-content" backgroundColor="#2e7d32" />
+            <StatusBar barStyle="light-content" backgroundColor="#388e3c" />
 
             <LinearGradient
-                colors={['#2e7d32', '#388e3c', '#4caf50']}
+                colors={[ '#388e3c', '#4caf50']}
                 start={{ x: 0.5, y: 0 }}
                 end={{ x: 0.5, y: 1 }}
                 style={styles.gradient}
@@ -35,11 +35,11 @@ export default function StoxlyLoginScreen() {
                 <View style={styles.inputContainer}>
                     <TextInput
                         style={styles.input}
-                        placeholder="Email Address"
+                        placeholder="Username"
                         placeholderTextColor="#AAA"
-                        value={email}
-                        onChangeText={setEmail}
-                        keyboardType="email-address"
+                        value={username}
+                        onChangeText={setUsername}
+                        keyboardType="default"
                         autoCapitalize="none"
                         autoCorrect={false}
                     />
@@ -58,7 +58,7 @@ export default function StoxlyLoginScreen() {
                 </View>
                 <TouchableOpacity style={styles.signInBtn}>
                     <LinearGradient
-                        colors={['#2e7d32', '#388e3c']}
+                        colors={['#388e3c', '#4caf50']}
                         start={{ x: 0, y: 0 }}
                         end={{ x: 1, y: 0 }}
                         style={styles.signInGradient}
@@ -79,17 +79,10 @@ export default function StoxlyLoginScreen() {
                 <View style={styles.socialRow}>
                     <TouchableOpacity style={styles.socialBtn}>
                         <Image
-                            source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg' }}
+                            source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/2048px-Google_%22G%22_logo.svg.png' }}
                             style={styles.socialIcon}
                         />
                         <Text style={styles.socialText}>Google</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.socialBtn}>
-                        <Image
-                            source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png' }}
-                            style={styles.socialIcon}
-                        />
-                        <Text style={styles.socialText}>Facebook</Text>
                     </TouchableOpacity>
                 </View>
             </View>
