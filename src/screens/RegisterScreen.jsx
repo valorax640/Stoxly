@@ -14,6 +14,8 @@ import LinearGradient from 'react-native-linear-gradient';
 const { height } = Dimensions.get('window');
 
 export default function StoxlyLoginScreen() {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -28,9 +30,9 @@ export default function StoxlyLoginScreen() {
                 style={styles.gradient}
             >
                 <View style={styles.headerRow}>
-                    <Text style={styles.headerText}>Don't have an account?</Text>
+                    <Text style={styles.headerText}>Already have an account?</Text>
                     <TouchableOpacity style={styles.getStartedButton}>
-                        <Text style={styles.getStarted}>Register</Text>
+                        <Text style={styles.getStarted}>Login</Text>
                     </TouchableOpacity>
                 </View>
                 <Text style={styles.logo}>Stoxly</Text>
@@ -38,8 +40,34 @@ export default function StoxlyLoginScreen() {
             </LinearGradient>
 
             <View style={styles.card}>
-                <Text style={styles.welcome}>Welcome Back</Text>
+                <Text style={styles.welcome}>Get Started</Text>
                 <Text style={styles.enterDetails}>Enter your details below</Text>
+
+                <View style={styles.inputContainer}>
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Name"
+                        placeholderTextColor="#AAA"
+                        value={name}
+                        onChangeText={setName}
+                        keyboardType="default"
+                        autoCapitalize="words"
+                        autoCorrect={false}
+                    />
+                </View>
+
+                <View style={styles.inputContainer}>
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Email"
+                        placeholderTextColor="#AAA"
+                        value={email}
+                        onChangeText={setEmail}
+                        keyboardType="email-address"
+                        autoCapitalize="none"
+                        autoCorrect={false}
+                    />
+                </View>
 
                 <View style={styles.inputContainer}>
                     <TextInput
@@ -54,7 +82,7 @@ export default function StoxlyLoginScreen() {
                     />
                 </View>
 
-                <View style={styles.inputContainer}>
+                {/* <View style={styles.inputContainer}>
                     <TextInput
                         style={styles.input}
                         placeholder="Password"
@@ -64,7 +92,8 @@ export default function StoxlyLoginScreen() {
                         onChangeText={setPassword}
                         autoCapitalize="none"
                     />
-                </View>
+                </View> */}
+
                 <TouchableOpacity style={styles.signInBtn}>
                     <LinearGradient
                         colors={['#388e3c', '#4caf50']}
@@ -74,10 +103,6 @@ export default function StoxlyLoginScreen() {
                     >
                         <Text style={styles.signInText}>Sign In</Text>
                     </LinearGradient>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.forgotContainer}>
-                    <Text style={styles.forgot}>Forgot your password?</Text>
                 </TouchableOpacity>
 
                 <View style={styles.divider}>
@@ -221,15 +246,6 @@ const styles = StyleSheet.create({
         fontWeight: '600',
         fontSize: 17,
         letterSpacing: 0.5,
-    },
-    forgotContainer: {
-        paddingVertical: 8,
-        marginBottom: 20,
-    },
-    forgot: {
-        color: '#388e3c',
-        fontSize: 15,
-        fontWeight: '500',
     },
     divider: {
         flexDirection: 'row',
