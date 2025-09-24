@@ -39,13 +39,13 @@ const OnboardingScreen = () => {
   const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     const contentOffset = event.nativeEvent.contentOffset.x;
     const index = Math.round(contentOffset / width);
-    
+
     // Handle the extended image (last position)
     if (index >= carouselImages.length) {
       // Don't update currentIndex for the extended image
       return;
     }
-    
+
     setCurrentIndex(index);
     scrollX.setValue(contentOffset);
   };
@@ -55,14 +55,14 @@ const OnboardingScreen = () => {
       x: index * width,
       animated: true,
     });
-    
+
     // Smooth animated transition for indicators
     Animated.timing(scrollX, {
       toValue: index * width,
       duration: 300,
       useNativeDriver: false,
     }).start();
-    
+
     setCurrentIndex(index);
   };
 
@@ -70,14 +70,14 @@ const OnboardingScreen = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       let nextIndex = currentIndex + 1;
-      
+
       if (nextIndex >= carouselImages.length) {
         // Smoothly scroll to the duplicate first image
         scrollViewRef.current?.scrollTo({
           x: carouselImages.length * width,
           animated: true,
         });
-        
+
         // After animation, instantly jump back to the real first image
         setTimeout(() => {
           scrollViewRef.current?.scrollTo({
@@ -93,13 +93,13 @@ const OnboardingScreen = () => {
           x: nextIndex * width,
           animated: true,
         });
-        
+
         Animated.timing(scrollX, {
           toValue: nextIndex * width,
           duration: 500,
           useNativeDriver: false,
         }).start();
-        
+
         setCurrentIndex(nextIndex);
       }
     }, 4000);
@@ -189,7 +189,7 @@ const OnboardingScreen = () => {
           showsHorizontalScrollIndicator={false}
           onScroll={Animated.event(
             [{ nativeEvent: { contentOffset: { x: scrollX } } }],
-            { 
+            {
               useNativeDriver: false,
               listener: handleScroll,
             }
@@ -212,8 +212,7 @@ const OnboardingScreen = () => {
         </Text>
 
         <Text style={styles.subtitle}>
-          "Track Your Inventory Seamless, {"\n"}
-          Being Steady and Effortless"
+          Inventory Management Made Simple
         </Text>
 
         <TouchableOpacity

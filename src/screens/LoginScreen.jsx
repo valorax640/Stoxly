@@ -13,7 +13,7 @@ import LinearGradient from 'react-native-linear-gradient';
 
 const { height } = Dimensions.get('window');
 
-export default function StoxlyLoginScreen() {
+export default function LoginScreen({navigation}) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
